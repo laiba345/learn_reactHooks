@@ -186,4 +186,11 @@ export default memo(CounterHooks);
     - **或者这次修改的state需要依赖之前的state时，也可以使用**
 - index.js是最后一个出口，App里面也可以包含很多别的组件；作为子组件的形式来使用！ 
 
-
+## useCallback
+1. useCallback实际的目的是为了进行性能的优化。
+    - 每次新定义他返回的是同一个函数
+2. 如何进行性能的优化呢？
+    - useCallback会返回一个函数的 memoized（记忆的） 值；
+    - 在依赖不变的情况下，多次定义的时候，返回的值是相同的；
+3. useCallback性能优化的点:
+- 当需要将一个函数传递给子组件时, 最好使用useCallback进行优化, 将优化之后的函数, 传递给子组件
